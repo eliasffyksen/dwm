@@ -12,6 +12,14 @@
         sed -i "s@/usr/local@$out@" config.mk
       '';
 
+      installPhase = ''
+        mkdir -p $out/bin
+        cp ./status.sh $out/bin/status.sh
+        chmod +x $out/bin/status.sh
+
+        make install
+      '';
+
       makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
       nativeBuildInputs = [ xorg.libX11 xorg.libXinerama xorg.libXft ];
     };
@@ -32,8 +40,9 @@
         services.xserver.desktopManager.session = lib.singleton {
           name = "dwm-eff";
           start = ''
-            ${dwm-eff-pkg}/bin/dwm &
+            ${dwm-eff-pkg}/bin/status.sh &
 
+            ${dwm-eff-pkg}/bin/dwm &
             waitPID=$!
           '';
         };
