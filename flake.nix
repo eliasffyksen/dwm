@@ -32,7 +32,9 @@
         services.xserver.desktopManager.session = lib.singleton {
           name = "dwm-eff";
           start = ''
-            exec ${dwm-eff-pkg}/bin/dwm
+            ${dwm-eff-pkg}/bin/dwm &
+
+            waitPID=$!
           '';
         };
       };
