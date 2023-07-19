@@ -79,6 +79,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *xlockcmd[] = { XLOCKPROGRAM, NULL };
+static const char *screenshotcmd[] = { SCREENSHOTPROGRAM, NULL };
 
 /* voluem commands */
 static const char *cmd_volume_up[]   = { "amixer", "-D", "pulse", "set", "Master", "5%+", NULL };
@@ -95,6 +96,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_s,      spawn,          {.v = screenshotcmd} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

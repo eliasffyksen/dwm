@@ -16,6 +16,7 @@ XINERAMAFLAGS = -DXINERAMA
 
 # The program to be executed to lock the screen
 XLOCKPROGRAM ?= dwm-lock
+SCREENSHOTPROGRAM ?= screenshot
 
 # freetype
 FREETYPELIBS = -lfontconfig -lXft
@@ -30,7 +31,10 @@ LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 # flags
 CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
-CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS} -DXLOCKPROGRAM=\"${XLOCKPROGRAM}\"
+CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS} \
+	-DXLOCKPROGRAM=\"${XLOCKPROGRAM}\" \
+	-DSCREENSHOTPROGRAM=\"${SCREENSHOTPROGRAM}\" \
+
 LDFLAGS  = ${LIBS}
 
 # Solaris
