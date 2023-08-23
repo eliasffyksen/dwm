@@ -1723,9 +1723,18 @@ tag(const Arg *arg)
 void
 tagmon(const Arg *arg)
 {
+	Monitor *m;
+
 	if (!selmon->sel || !mons->next)
 		return;
-	sendmon(selmon->sel, dirtomon(arg->i));
+
+	m = dirtomon(arg->i);
+	sendmon(selmon->sel, m);
+
+	unfocus(selmon->sel, 0);
+	selmon = m;
+	focus(NULL);
+	warp(selmon->sel);
 }
 
 void
