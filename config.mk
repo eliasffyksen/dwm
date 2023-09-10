@@ -15,6 +15,10 @@ XINERAMALIBS  = -lXinerama
 XINERAMAFLAGS = -DXINERAMA
 
 # The program to be executed to lock the screen
+DMENU_RUN ?= dmenu_run
+AMIXER ?= amixer
+PLAYERCTL ?= playerctl
+TERMPROGRAM ?= alacritty
 XLOCKPROGRAM ?= dwm-lock
 SCREENSHOTPROGRAM ?= screenshot
 
@@ -32,6 +36,10 @@ LIBS = -L${X11LIB} -lX11 ${XINERAMALIBS} ${FREETYPELIBS}
 CPPFLAGS = -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_POSIX_C_SOURCE=2 -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
 #CFLAGS   = -g -std=c99 -pedantic -Wall -O0 ${INCS} ${CPPFLAGS}
 CFLAGS   = -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os ${INCS} ${CPPFLAGS} \
+	-DDMENU_RUN=\"${DMENU_RUN}\" \
+	-DAMIXER=\"${AMIXER}\" \
+	-DPLAYERCTL=\"${PLAYERCTL}\" \
+	-DTERMPROGRAM=\"${TERMPROGRAM}\" \
 	-DXLOCKPROGRAM=\"${XLOCKPROGRAM}\" \
 	-DSCREENSHOTPROGRAM=\"${SCREENSHOTPROGRAM}\" \
 

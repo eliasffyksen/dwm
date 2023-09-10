@@ -75,20 +75,20 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *dmenucmd[] = { DMENU_RUN, "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]  = { TERMPROGRAM, NULL };
 
 static const char *xlockcmd[] = { XLOCKPROGRAM, NULL };
 static const char *screenshotcmd[] = { SCREENSHOTPROGRAM, NULL };
 
 /* voluem commands */
-static const char *cmd_volume_up[]   = { "amixer", "-D", "pulse", "set", "Master", "5%+", NULL };
-static const char *cmd_volume_down[] = { "amixer", "-D", "pulse", "set", "Master", "5%-", NULL };
+static const char *cmd_volume_up[]   = { AMIXER, "Master", "5%+", NULL };
+static const char *cmd_volume_down[] = { AMIXER, "Master", "5%-", NULL };
 
 /* player commands */
-static const char *cmd_player_play[]     = { "playerctl", "play-pause", NULL };
-static const char *cmd_player_next[]     = { "playerctl", "next", NULL };
-static const char *cmd_player_previous[] = { "playerctl", "previous", NULL };
+static const char *cmd_player_play[]     = { PLAYERCTL, "play-pause", NULL };
+static const char *cmd_player_next[]     = { PLAYERCTL, "next", NULL };
+static const char *cmd_player_previous[] = { PLAYERCTL, "previous", NULL };
 
 #include <X11/XF86keysym.h>
 

@@ -20,7 +20,14 @@
         make install
       '';
 
-      makeFlags = [ "CC=${stdenv.cc.targetPrefix}cc" ];
+      makeFlags = [
+        "CC=${stdenv.cc.targetPrefix}cc"
+        "DMENU_RUN=${dmenu}/bin/dmenu_run"
+        "AMIXER=${alsa-utils}/bin/amixer"
+        "TERMPROGRAM=${alacritty}/bin/alacritty"
+        "XLOCKPROGRAM=${i3lock}/bin/i3lock"
+        "SCREENSHOTPROGRAM=${scrot}/bin/scrot"
+      ];
       nativeBuildInputs = [ xorg.libX11 xorg.libXinerama xorg.libXft ];
     };
   in
