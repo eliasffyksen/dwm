@@ -82,8 +82,8 @@ static const char *xlockcmd[] = { XLOCKPROGRAM, NULL };
 static const char *screenshotcmd[] = { SCREENSHOTPROGRAM, NULL };
 
 /* voluem commands */
-static const char *cmd_volume_up[]   = { AMIXER, "Master", "5%+", NULL };
-static const char *cmd_volume_down[] = { AMIXER, "Master", "5%-", NULL };
+static const char *cmd_volume_up[]   = { AMIXER, "set", "Master", "5%+", NULL };
+static const char *cmd_volume_down[] = { AMIXER, "set", "Master", "5%-", NULL };
 
 /* player commands */
 static const char *cmd_player_play[]     = { PLAYERCTL, "play-pause", NULL };
