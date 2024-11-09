@@ -5,3 +5,12 @@
 * fancybar
 * wrap
 
+# Update instructions
+
+```sh
+cd /etc/nixos
+nix flake lock --update-input <input-name>
+sudo nixos-rebuild switch
+sudo systemctl restart display-manager
+```
+
