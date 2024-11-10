@@ -40,13 +40,21 @@
       options = {
         services.xserver.desktopManager.dwm-eff = {
           enable = lib.mkEnableOption (lib.mdDoc "eff's dwm build");
+		  extraStartupCommands = lib.mkOption {
+			type = with types; nullable str;
+			default = "";
+			desciption = "Commands to run before starting dwm";
+		  };
         };
       };
+
 
       config = lib.mkIf cfg.enable {
         services.xserver.desktopManager.session = lib.singleton {
           name = "dwm-eff";
           start = ''
+            ${cfg.extraStartupCommands}
+
             ${dwm-eff-pkg}/bin/status.sh &
 
             ${dwm-eff-pkg}/bin/dwm &
