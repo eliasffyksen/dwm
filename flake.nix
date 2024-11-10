@@ -43,7 +43,7 @@
 		  extraStartupCommands = lib.mkOption {
 			type = with types; nullable str;
 			default = "";
-			desciption = "Commands to run before starting dwm";
+			description = "Commands to run before starting dwm";
 		  };
         };
       };
