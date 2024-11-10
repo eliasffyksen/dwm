@@ -41,7 +41,7 @@
         services.xserver.desktopManager.dwm-eff = {
           enable = lib.mkEnableOption (lib.mdDoc "eff's dwm build");
           extraStartupCommands = lib.mkOption {
-            type = lib.types.nullable lib.types.str;
+            type = lib.types.str;
             default = "";
             description = "Commands to run before starting dwm";
           };
